@@ -1,21 +1,27 @@
 # File: cis129_lab03_coffeeShop.py
 # Author: [Nicholas Piller]
 # Date: [2/18/2025]
-# Description: This program detrmines the cost of a coffee and muffin purchase after tax.
+# Description: This program detrmines the cost of a coffee, tea, cookies, and muffin purchase after tax.
 
 # Define the prices
 COFFEE_PRICE = 5.00
 MUFFIN_PRICE = 4.00
+TEA_PRICE = 4.00
+COOKIE_PRICE = 3.00
 TAX_RATE = 0.06  # 6% tax
 
 # Get user input
 num_coffees = int(input("1"))
 num_muffins = int(input("2"))
+num_cookie = int(input("5"))
+num_tea = int(input("12"))
 
 # Calculate subtotal
 coffee_total = num_coffees * COFFEE_PRICE
 muffin_total = num_muffins * MUFFIN_PRICE
-subtotal = coffee_total + muffin_total
+tea_total = num_teas * TEA_PRICE
+cookie_total = num_cookies * COOKIE_PRICE
+subtotal = coffee_total + muffin_total + tea_total + cookie_total
 
 # Calculate tax and total
 tax = subtotal * TAX_RATE
@@ -27,7 +33,10 @@ print("         Nicholas Piller Shop       ")
 print("****************************************")
 print(f"{num_coffees} Coffee at ${COFFEE_PRICE} each: ${coffee_total:.2f}")
 print(f"{num_muffins} Muffins at ${MUFFIN_PRICE} each: ${muffin_total:.2f}")
+print(f"{num_teas} Tea at ${TEA_PRICE} each: ${tea_total:.2f}")
+ print(f"{num_cookies} Cookies at ${COOKIE_PRICE} each: ${cookie_total:.2f}")
 print(f"6% tax: ${tax:.2f}")
 print("------------")
 print(f"Total: ${total:.2f}")
 print("****************************************")
+Print("          see you again           ")
