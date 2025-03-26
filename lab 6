@@ -1,0 +1,37 @@
+import math
+
+# Constants for package sizes
+DOGS_PER_PACKAGE = 10
+BUNS_PER_PACKAGE = 8
+
+def get_total_hot_dogs():
+    """Gets the number of people and hot dogs per person and calculates total hot dogs needed."""
+    people = int(input("Enter the number of people attending the cookout: "))
+    hot_dogs_per_person = int(input("Enter the number of hot dogs for each person: "))
+    return people * hot_dogs_per_person
+
+def show_results(dogs_left, min_dogs, buns_left, min_buns):
+    """Displays the results of the calculations."""
+    print(f"Minimum packages of hot dogs needed: {min_dogs}")
+    print(f"Minimum packages of hot dog buns needed: {min_buns}")
+    print(f"Hot dogs left over: {dogs_left}")
+    print(f"Hot dog buns left over: {buns_left}")
+
+def main():
+    """Main function to execute the hot dog cookout calculations."""
+    total_hot_dogs = get_total_hot_dogs()
+    
+    # Calculate minimum packages needed
+    min_dogs = math.ceil(total_hot_dogs / DOGS_PER_PACKAGE)
+    min_buns = math.ceil(total_hot_dogs / BUNS_PER_PACKAGE)
+
+    # Calculate leftovers
+    dogs_left = (min_dogs * DOGS_PER_PACKAGE) - total_hot_dogs
+    buns_left = (min_buns * BUNS_PER_PACKAGE) - total_hot_dogs
+
+    # Display results
+    show_results(dogs_left, min_dogs, buns_left, min_buns)
+
+# Run the program
+if __name__ == "__main__":
+    main()
