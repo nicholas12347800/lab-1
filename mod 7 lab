@@ -8,14 +8,12 @@ PRICES = {
     SECTION_A: 20,
     SECTION_B: 15,
     SECTION_C: 10
-}
 
 # Constants for seat capacities
 SEATS = {
     SECTION_A: 300,
     SECTION_B: 500,
     SECTION_C: 200
-}
 
 def get_tickets_sold(section_name, max_seats):
     while True:
