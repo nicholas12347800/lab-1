@@ -1,0 +1,56 @@
+# Constants for section names
+SECTION_A = "A"
+SECTION_B = "B"
+SECTION_C = "C"
+
+# Constants for pricing
+PRICES = {
+    SECTION_A: 20,
+    SECTION_B: 15,
+    SECTION_C: 10
+}
+
+# Constants for seat capacities
+SEATS = {
+    SECTION_A: 300,
+    SECTION_B: 500,
+    SECTION_C: 200
+}
+
+def get_tickets_sold(section_name, max_seats):
+    while True:
+        try:
+            sold = int(input(f"Enter number of tickets sold in section {section_name} (max {max_seats}): "))
+            if 0 <= sold <= max_seats:
+                return sold
+            else:
+                print(f"Please enter a number between 0 and {max_seats}.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+def calculate_income(tickets_sold, price):
+    return tickets_sold * price
+
+def main():
+    print("Welcome to Nicks Theater")
+    print("\nTicket Prices and Available Seats:")
+    for section in PRICES:
+        print(f"Section {section}: ${PRICES[section]} per seat, {SEATS[section]} seats available")
+
+    total_income = 0
+    total_tickets = 0
+
+    print("\nTicket Sales Summary:")
+    for section in PRICES:
+        sold = get_tickets_sold(section, SEATS[section])
+        income = calculate_income(sold, PRICES[section])
+        total_income += income
+        total_tickets += sold
+        print(f"Section {section}: {sold} tickets sold, subtotal = ${income}")
+
+    print("\nOverall Summary:")
+    print(f"Total tickets sold: {total_tickets}")
+    print(f"Total income: ${total_income}")
+
+if __name__ == "__main__":
+    main()
