@@ -1,0 +1,14 @@
+exercise = getUserSelectedExercise()
+videoFeed = startCamera()
+
+while (videoFeed isActive):
+    bodyPosition = detectBodyJoints(videoFeed)
+    angles = calculateJointAngles(bodyPosition)
+
+    if (exercise == "squat"):
+        if (angles.kneeOverToe > threshold):
+            displayFeedback("Watch your knees!")
+        if (angles.backAngle < safeRange):
+            displayFeedback("Keep your back straighter!")
+
+logFormData(bodyPosition, angles)
