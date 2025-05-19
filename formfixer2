@@ -1,0 +1,20 @@
+// User selects exercise
+exercise = getUserSelectedExercise()
+
+// Start camera input
+videoFeed = startCamera()
+
+// While recording
+while (videoFeed isActive):
+    bodyPosition = detectBodyJoints(videoFeed)
+    angles = calculateJointAngles(bodyPosition)
+
+    // Check form based on exercise
+    if (exercise == "squat"):
+        if (angles.kneeOverToe > threshold):
+            displayFeedback("Watch your knees!")
+        if (angles.backAngle < safeRange):
+            displayFeedback("Keep your back straighter!")
+
+    // Log data
+    logFormData(bodyPosition, angles)
